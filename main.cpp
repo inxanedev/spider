@@ -105,9 +105,6 @@ class Stack {
 		void push(int value) {
 			stack.push_back(value);
 		}
-		void operator+=(int val) {
-			push(val);
-		}
 		int length() {
 			return stack.size();
 		}
