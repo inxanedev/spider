@@ -93,6 +93,7 @@ class Stack {
 	private:
 		std::vector<int> stack;
 	public:
+		int reg = 0;
 		int pop() {
 			int result = 0;
 			if (stack.size() > 0) {
@@ -103,6 +104,9 @@ class Stack {
 		}
 		void push(int value) {
 			stack.push_back(value);
+		}
+		void operator+=(int val) {
+			push(val);
 		}
 		int length() {
 			return stack.size();
@@ -294,6 +298,13 @@ int main(int argc, char *argv[]) {
 				else
 					safeMove(coords, Down, maxX, maxY);
 				continue;
+			case '`':
+				stack.reg = stack.pop();
+				break;
+			case '~':
+				stack.push(stack.reg);
+				stack.reg = 0;
+				break;
 			default:
 				break;
 		}
