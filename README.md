@@ -23,7 +23,7 @@ The `O` instruction (the big letter not zero) will simply go over the whole stac
 
 This means that this program prints Hello World!:
 
-	"Hello World!"rO@
+    "Hello World!"rO@
     
 It uses the reverse stack instruction as well as the OUTPUT WHOLE STACK instruction.
 ## The Register
@@ -31,41 +31,41 @@ There is a special type of place where you can hold a single number, the registe
 
 This might be useful in a number of situations. Example: you wanna clear the stack but keep one specific value.
 ## Available instructions
-    0 - 9:   	push the number to the stack
-    < v > ^: 	change the direction the IP is heading in
-    o:			pop and output as an integer
-    p:	   		pop and output as an ASCII character
-    @:			stop program execution
-    +:			pop two values and push the sum
-    *:			pop two values and push the product
-    -:			pop two values and push the difference
-    =:			pop two values, if they're equal, go up, else, go down
-    (:			start number mode
-    ):			stop number mode
-    ":			toggle string mode
-    O:			output whole stack as an ASCII string
-    l:			push the length of the stack onto the stack
-    g:			get user input, push the first character as an ASCII value
-    G:			get user input, push ALL characters as ASCII values
-    i:			get user input, push it as a number
-    d:			duplicate the top value on the stack
-    D:			pop a value and discard it
-    r:			reverse the stack order
-    s:			print the stack's values in the format of [1, 5, 2] etc, mainly used for debugging
-    #:			move in a random direction (up down left or right)
-    _:			skip the next instruction (really handy sometimes)
-    N:			print new line (saves a couple of characters in code)
-    C:			discard the whole stack (clear)
-    %:			pop a value, then use it as a percentage chance to go up, otherwise go down
-    `:			pop a value and push it onto the register
-    ~:			push the value from the register onto the stack, and reset register to 0
+    0 - 9:      push the number to the stack
+    < v > ^:    change the direction the IP is heading in
+    o:          pop and output as an integer
+    p:          pop and output as an ASCII character
+    @:          stop program execution
+    +:          pop two values and push the sum
+    *:          pop two values and push the product
+    -:          pop two values and push the difference
+    =:          pop two values, if they're equal, go up, else, go down
+    (:          start number mode
+    ):          stop number mode
+    ":          toggle string mode
+    O:          output whole stack as an ASCII string
+    l:          push the length of the stack onto the stack
+    g:          get user input, push the first character as an ASCII value
+    G:          get user input, push ALL characters as ASCII values
+    i:          get user input, push it as a number
+    d:          duplicate the top value on the stack
+    D:          pop a value and discard it
+    r:          reverse the stack order
+    s:          print the stack's values in the format of [1, 5, 2] etc, mainly used for debugging
+    #:          move in a random direction (up down left or right)
+    _:          skip the next instruction (really handy sometimes)
+    N:          print new line (saves a couple of characters in code)
+    C:          discard the whole stack (clear)
+    %:          pop a value, then use it as a percentage chance to go up, otherwise go down
+    `:          pop a value and push it onto the register
+    ~:          push the value from the register onto the stack, and reset register to 0
     
 ## Example Program
 The program below will simply print "Hello World!" half of the time. The other half of the time it'll print "Bye World!".
 
     v   >"Hello World!"v
-	>  >#<    @      Or<
-	    >"Bye World!"  ^
+    >  >#<    @      Or<
+        >"Bye World!"  ^
 The `#` symbol can go in any direction, which is why in this code, if it goes left or right, it'll go back into the `#`, allowing it only to exit up or down. If it goes up, it'll print Hello World!, if not, it'll print Bye World!.
 ## Notes
 * If the instruction pointer reaches an edge, it'll "wrap around" to the other side.
